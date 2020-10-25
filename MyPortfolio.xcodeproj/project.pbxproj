@@ -16,6 +16,8 @@
 		BF72A7FA254540F100A07DC5 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF72A7F9254540F100A07DC5 /* DataController.swift */; };
 		BF72A7FD2545411800A07DC5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF72A7FC2545411800A07DC5 /* HomeView.swift */; };
 		BF72A8002545412300A07DC5 /* ProjectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF72A7FF2545412300A07DC5 /* ProjectsView.swift */; };
+		BF7F5C4B25454E2900CA3B55 /* Item-CoreDataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7F5C4A25454E2900CA3B55 /* Item-CoreDataExtension.swift */; };
+		BF7F5C4E25454E9900CA3B55 /* Project-CoreDataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7F5C4D25454E9900CA3B55 /* Project-CoreDataExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,8 @@
 		BF72A7F9254540F100A07DC5 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		BF72A7FC2545411800A07DC5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		BF72A7FF2545412300A07DC5 /* ProjectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsView.swift; sourceTree = "<group>"; };
+		BF7F5C4A25454E2900CA3B55 /* Item-CoreDataExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item-CoreDataExtension.swift"; sourceTree = "<group>"; };
+		BF7F5C4D25454E9900CA3B55 /* Project-CoreDataExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Project-CoreDataExtension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +75,7 @@
 				BF72A7FC2545411800A07DC5 /* HomeView.swift */,
 				BF72A7FF2545412300A07DC5 /* ProjectsView.swift */,
 				BF72A7F9254540F100A07DC5 /* DataController.swift */,
+				BF7F5C502545671B00CA3B55 /* CoreData Extensions */,
 				BF72A7E425453F9600A07DC5 /* Assets.xcassets */,
 				BF72A7E925453F9600A07DC5 /* Info.plist */,
 				BF72A7E625453F9600A07DC5 /* Preview Content */,
@@ -93,6 +98,15 @@
 				BF72A7F225453FB300A07DC5 /* CloudKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BF7F5C502545671B00CA3B55 /* CoreData Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BF7F5C4A25454E2900CA3B55 /* Item-CoreDataExtension.swift */,
+				BF7F5C4D25454E9900CA3B55 /* Project-CoreDataExtension.swift */,
+			);
+			path = "CoreData Extensions";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,6 +184,8 @@
 				BF72A7E325453F9500A07DC5 /* ContentView.swift in Sources */,
 				BF72A7FD2545411800A07DC5 /* HomeView.swift in Sources */,
 				BF72A7E125453F9500A07DC5 /* MyPortfolioApp.swift in Sources */,
+				BF7F5C4E25454E9900CA3B55 /* Project-CoreDataExtension.swift in Sources */,
+				BF7F5C4B25454E2900CA3B55 /* Item-CoreDataExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

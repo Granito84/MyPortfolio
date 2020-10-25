@@ -15,7 +15,7 @@ struct ProjectsView: View {
         self.showClosedProjects = showClosedProjects
         
         projects = FetchRequest<Project>(entity: Project.entity(),
-                                         sortDescriptors: [ NSSortDescriptor(keyPath: \Project.creationDate, ascending: false) ],
+                                         sortDescriptors: [ NSSortDescriptor(keyPath: \Project.creationDate, ascending: true) ],
                                          predicate: NSPredicate(format: "closed = %d", showClosedProjects))
     }
     
@@ -24,9 +24,9 @@ struct ProjectsView: View {
         NavigationView {
             List {
                 ForEach(projects.wrappedValue) { project in
-                    Section(header: Text(project.title ?? "")) {
-                        ForEach(project.items?.allObjects as? [Item] ?? []) { item in
-                            Text(item.title ?? "")
+                    Section(header: Text(project.projectTitle)) {
+                        ForEach(project.projectItems) { item in
+                            Text(item.itemTitle)
                         }
                     }
                 }
