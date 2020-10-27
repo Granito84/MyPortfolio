@@ -43,7 +43,7 @@ class DataController: ObservableObject {
             project.creationDate = Date()
             project.closed = Bool.random()
             // set up items for each project
-            for j in 1...10 {
+            for j in 1...Int.random(in: 2...10) {
                 let item = Item(context: viewContext)
                 item.title = "Item \(j)"
                 item.creationDate = Date()
@@ -78,4 +78,25 @@ extension DataController {
         let batchDeleteReq2 = NSBatchDeleteRequest(fetchRequest: req2)
         _ = try? container.viewContext.execute(batchDeleteReq2)
     }
+    
+    
+    func clearData() {
+        let mom = container.managedObjectModel
+        let moc = container.viewContext
+        moc.performAndWait {
+            for entity in mom.entities {
+                let request = NSFetchRequest<NSFetchRequestResult>(entityName: entity.name!)
+                let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: request)
+                do {
+                    try moc.execute(batchDeleteRequest)
+                } catch {
+                    let nserror = error as NSError
+                    fatalError("\(#function): failed to execute delete request,\n\(nserror.localizedDescription)")
+                }
+            }
+        }
+        try? moc.save()
+        self.objectWillChange.send()
+    }
+
 }

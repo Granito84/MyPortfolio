@@ -5,7 +5,7 @@
 //  Created by Graham Reynolds on 25/10/20.
 //
 
-import Foundation
+import SwiftUI
 
 
 extension Project {
@@ -21,8 +21,9 @@ extension Project {
         creationDate ?? Date()
     }
     
-    var projectColor: String {
-        color ?? "Light Blue"
+    var projectColor: Color {
+        guard let color = color else { return Color("Light Blue") }
+        return Color(color)
     }
     
     var projectItems: [Item] {
