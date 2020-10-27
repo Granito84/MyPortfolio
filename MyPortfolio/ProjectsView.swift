@@ -28,7 +28,7 @@ struct ProjectsView: View {
                 ForEach(projects.wrappedValue) { project in
                     Section(header: ProjectHeaderView(title: project.projectTitle, date: project.projectCreationDate, color: project.projectColor)) {
                         ForEach(project.projectItems) { item in
-                            ItemView(title: item.itemTitle, priority: item.priority, completed: item.completed)
+                            ItemRowView(item: item)
                         }
                     }
                 }
@@ -60,31 +60,6 @@ struct ProjectHeaderView: View {
     }
 }
 
-
-struct ItemView: View {
-    let title: String
-    let priority: Int16
-    let completed: Bool
-    
-    var body: some View {
-        HStack {
-            VStack(alignment: .leading) {
-                Text(title)
-                Text("priority: \(priority)").font(.caption2).foregroundColor(.secondary)
-            }
-            Spacer()
-            Group {
-                if completed {
-                    Image(systemName: "checkmark.circle")
-                } else {
-                    Image(systemName: "circle")
-                }
-            }
-            .font(.subheadline)
-            .foregroundColor(Color("Light Blue"))
-        }
-    }
-}
 
 
 struct ProjectsView_Previews: PreviewProvider {
