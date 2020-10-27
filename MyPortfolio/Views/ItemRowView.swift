@@ -43,9 +43,15 @@ struct ItemView: View {
     }
 }
 
+// MARK: - Previews
 
 struct ItemRowView_Previews: PreviewProvider {
     static var previews: some View {
-        ItemRowView(item: Item.example)
+        NavigationView {
+            List {
+                ItemRowView(item: Item.example)
+            }
+        }
+        .preferredColorScheme(.dark)
     }
 }
