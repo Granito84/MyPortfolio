@@ -26,7 +26,7 @@ struct ProjectsView: View {
         NavigationView {
             List {
                 ForEach(projects.wrappedValue) { project in
-                    Section(header: ProjectHeaderView(title: project.projectTitle, date: project.projectCreationDate, color: project.projectColor)) {
+                    Section(header: ProjectHeaderView(project: project)) {
                         ForEach(project.projectItems) { item in
                             ItemRowView(item: item)
                         }
@@ -39,26 +39,6 @@ struct ProjectsView: View {
     }
 }
 
-
-struct ProjectHeaderView: View {
-    let title: String
-    let date: Date
-    let color: Color
-    
-    var body: some View {
-        HStack {
-            VStack(alignment: .leading, spacing: 6) {
-                Text(title)
-                    .font(.headline)
-                Text("\(DateFormatter.localizedString(from: date, dateStyle: .medium, timeStyle: .short))")
-                    .font(.caption2)
-            }
-            Spacer()
-            RoundedRectangle(cornerRadius: 6).fill(color).frame(width: 18, height: 18)
-                .padding(.trailing, 20)
-        }
-    }
-}
 
 // MARK: - Previews
 

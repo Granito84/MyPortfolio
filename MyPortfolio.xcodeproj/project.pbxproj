@@ -21,6 +21,9 @@
 		BFB1987D2547DFCC00C87212 /* EditItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB1987C2547DFCC00C87212 /* EditItemView.swift */; };
 		BFB198802547E4AF00C87212 /* ItemRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB1987F2547E4AF00C87212 /* ItemRowView.swift */; };
 		BFB198832547E83400C87212 /* Binding-OnChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB198822547E83400C87212 /* Binding-OnChange.swift */; };
+		BFDD9278254BBF4F004B0125 /* ProjectHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDD9277254BBF4F004B0125 /* ProjectHeaderView.swift */; };
+		BFDD927B254BC478004B0125 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFDD927A254BC478004B0125 /* Colors.xcassets */; };
+		BFDD927E254BC69B004B0125 /* EditProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDD927D254BC69B004B0125 /* EditProjectView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +44,9 @@
 		BFB1987C2547DFCC00C87212 /* EditItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditItemView.swift; sourceTree = "<group>"; };
 		BFB1987F2547E4AF00C87212 /* ItemRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRowView.swift; sourceTree = "<group>"; };
 		BFB198822547E83400C87212 /* Binding-OnChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding-OnChange.swift"; sourceTree = "<group>"; };
+		BFDD9277254BBF4F004B0125 /* ProjectHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectHeaderView.swift; sourceTree = "<group>"; };
+		BFDD927A254BC478004B0125 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		BFDD927D254BC69B004B0125 /* EditProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProjectView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +88,7 @@
 				BFB198862547F2EC00C87212 /* Helpers */,
 				BF7F5C502545671B00CA3B55 /* CoreData Extensions */,
 				BF72A7E425453F9600A07DC5 /* Assets.xcassets */,
+				BFDD927A254BC478004B0125 /* Colors.xcassets */,
 				BF72A7E925453F9600A07DC5 /* Info.plist */,
 				BF72A7E625453F9600A07DC5 /* Preview Content */,
 				BF72A7F52545403C00A07DC5 /* MyPortfolio.xcdatamodeld */,
@@ -135,8 +142,10 @@
 			children = (
 				BF72A7E225453F9500A07DC5 /* ContentView.swift */,
 				BFB1987C2547DFCC00C87212 /* EditItemView.swift */,
+				BFDD927D254BC69B004B0125 /* EditProjectView.swift */,
 				BF72A7FC2545411800A07DC5 /* HomeView.swift */,
 				BF72A7FF2545412300A07DC5 /* ProjectsView.swift */,
+				BFDD9277254BBF4F004B0125 /* ProjectHeaderView.swift */,
 				BFB1987F2547E4AF00C87212 /* ItemRowView.swift */,
 			);
 			path = Views;
@@ -199,6 +208,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFDD927B254BC478004B0125 /* Colors.xcassets in Resources */,
 				BF72A7E825453F9600A07DC5 /* Preview Assets.xcassets in Resources */,
 				BF72A7E525453F9600A07DC5 /* Assets.xcassets in Resources */,
 			);
@@ -212,12 +222,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF72A8002545412300A07DC5 /* ProjectsView.swift in Sources */,
+				BFDD9278254BBF4F004B0125 /* ProjectHeaderView.swift in Sources */,
 				BF72A7F72545403C00A07DC5 /* MyPortfolio.xcdatamodeld in Sources */,
 				BF72A7FA254540F100A07DC5 /* DataController.swift in Sources */,
 				BF72A7E325453F9500A07DC5 /* ContentView.swift in Sources */,
 				BFB198802547E4AF00C87212 /* ItemRowView.swift in Sources */,
 				BF72A7FD2545411800A07DC5 /* HomeView.swift in Sources */,
 				BFB198832547E83400C87212 /* Binding-OnChange.swift in Sources */,
+				BFDD927E254BC69B004B0125 /* EditProjectView.swift in Sources */,
 				BF72A7E125453F9500A07DC5 /* MyPortfolioApp.swift in Sources */,
 				BF7F5C4E25454E9900CA3B55 /* Project-CoreDataExtension.swift in Sources */,
 				BF7F5C4B25454E2900CA3B55 /* Item-CoreDataExtension.swift in Sources */,
