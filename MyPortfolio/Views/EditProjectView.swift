@@ -15,7 +15,8 @@ struct EditProjectView: View {
     @State private var title: String
     @State private var detail: String
     @State private var color: String
-    @State private var showingDeleteConfirm: Bool = false
+    @State private var showingDeleteConfirm = false
+    @State private var hasChanges = false
     
     let colorColumns = [
         GridItem(.adaptive(minimum: 44))
@@ -31,8 +32,8 @@ struct EditProjectView: View {
     var body: some View {
         Form {
             Section(header: Text("Basic settings")) {
-                TextField("Project name", text: $title.onChange(update))
-                TextField("Description of project", text: $detail.onChange(update))
+                TextField("Project name", text: $title.onChange { hasChanges = true })
+                TextField("Description of project", text: $detail.onChange { hasChanges = true })
             }
             
             Section(header: Text("Custom project color")) {
@@ -50,7 +51,7 @@ struct EditProjectView: View {
                         }
                         .onTapGesture {
                             color = item
-                            update()
+                            hasChanges = true
                         }
                     }
                 }
@@ -66,6 +67,15 @@ struct EditProjectView: View {
                     showingDeleteConfirm.toggle()
                 }
                 .accentColor(.red)
+            }
+
+            Section(footer: Text("Press save to keep the changes; otherwise go back to discard the changes")) {
+                Button("Save") {
+                    update()
+                }
+                .padding(.vertical, 10)
+                .wideButtonStyle(color: hasChanges ? Color(.systemOrange) : .gray)
+                .disabled(!hasChanges)
             }
         }
         .navigationTitle("Edit Project")
@@ -93,7 +103,12 @@ struct EditProjectView: View {
 
 // MARK: - previews
 struct EditProjectView_Previews: PreviewProvider {
+    static var dataController = DataController.preview
+
     static var previews: some View {
         EditProjectView(project: Project.example)
+            .environment(\.managedObjectContext, dataController.container.viewContext)
+            .environmentObject(dataController)
+            .preferredColorScheme(.dark)
     }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF02FB60254DAA1000E0A92C /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF02FB5F254DAA1000E0A92C /* ButtonStyles.swift */; };
 		BF72A7E125453F9500A07DC5 /* MyPortfolioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF72A7E025453F9500A07DC5 /* MyPortfolioApp.swift */; };
 		BF72A7E325453F9500A07DC5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF72A7E225453F9500A07DC5 /* ContentView.swift */; };
 		BF72A7E525453F9600A07DC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF72A7E425453F9600A07DC5 /* Assets.xcassets */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BF02FB5F254DAA1000E0A92C /* ButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
 		BF72A7DD25453F9500A07DC5 /* MyPortfolio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyPortfolio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF72A7E025453F9500A07DC5 /* MyPortfolioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPortfolioApp.swift; sourceTree = "<group>"; };
 		BF72A7E225453F9500A07DC5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -61,6 +63,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF02FB5E254DA9ED00E0A92C /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				BF02FB5F254DAA1000E0A92C /* ButtonStyles.swift */,
+			);
+			path = Styles;
+			sourceTree = "<group>";
+		};
 		BF72A7D425453F9500A07DC5 = {
 			isa = PBXGroup;
 			children = (
@@ -84,6 +94,7 @@
 				BF72A7F025453FAD00A07DC5 /* MyPortfolio.entitlements */,
 				BF72A7E025453F9500A07DC5 /* MyPortfolioApp.swift */,
 				BFB198852547EE1400C87212 /* Extensions */,
+				BF02FB5E254DA9ED00E0A92C /* Styles */,
 				BFB198872547F2FD00C87212 /* Views */,
 				BFB198862547F2EC00C87212 /* Helpers */,
 				BF7F5C502545671B00CA3B55 /* CoreData Extensions */,
@@ -232,6 +243,7 @@
 				BFDD927E254BC69B004B0125 /* EditProjectView.swift in Sources */,
 				BF72A7E125453F9500A07DC5 /* MyPortfolioApp.swift in Sources */,
 				BF7F5C4E25454E9900CA3B55 /* Project-CoreDataExtension.swift in Sources */,
+				BF02FB60254DAA1000E0A92C /* ButtonStyles.swift in Sources */,
 				BF7F5C4B25454E2900CA3B55 /* Item-CoreDataExtension.swift in Sources */,
 				BFB1987D2547DFCC00C87212 /* EditItemView.swift in Sources */,
 			);
