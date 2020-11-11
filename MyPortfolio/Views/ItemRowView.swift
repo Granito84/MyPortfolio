@@ -8,40 +8,33 @@
 import SwiftUI
 
 struct ItemRowView: View {
+    @ObservedObject var project: Project
     @ObservedObject var item: Item
+    
+    @ViewBuilder var icon: some View {
+        if item.completed {
+            Image(systemName: "checkmark.circle")
+                .foregroundColor(project.projectColor)
+        } else if item.priority == 3 {
+            Image(systemName: "exclamationmark.triangle")
+                .foregroundColor(project.projectColor)
+        } else {
+            Image(systemName: "checkmark.circle")
+                .foregroundColor(.clear)
+        }
+    }
     
     var body: some View {
         NavigationLink(destination: EditItemView(item: item)) {
-            ItemView(title: item.itemTitle, priority: item.priority, completed: item.completed)
+            Label {
+                Text(item.itemTitle)
+            } icon: {
+                icon
+            }
         }
     }
 }
 
-
-struct ItemView: View {
-    let title: String
-    let priority: Int16
-    let completed: Bool
-    
-    var body: some View {
-        HStack {
-            VStack(alignment: .leading) {
-                Text(title)
-                Text("priority: \(priority)").font(.caption2).foregroundColor(.secondary)
-            }
-            Spacer()
-            Group {
-                if completed {
-                    Image(systemName: "checkmark.circle")
-                } else {
-                    Image(systemName: "circle")
-                }
-            }
-            .font(.subheadline)
-            .foregroundColor(Color("Light Blue"))
-        }
-    }
-}
 
 // MARK: - Previews
 
@@ -49,7 +42,7 @@ struct ItemRowView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
             List {
-                ItemRowView(item: Item.example)
+                ItemRowView(project: Project.example, item: Item.example)
             }
         }
         .preferredColorScheme(.dark)
