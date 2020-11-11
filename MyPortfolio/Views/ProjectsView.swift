@@ -37,7 +37,7 @@ struct ProjectsView: View {
                             ItemRowView(item: item)
                         }
                         .onDelete { offsets in
-                            let allItems = project.projectItems
+                            let allItems = project.projectItems(using: sortOrder)
                             for offset in offsets {
                                 let item = allItems[offset]
                                 dataController.delete(item)
@@ -45,6 +45,7 @@ struct ProjectsView: View {
                             dataController.save()
                         }
                         if !showClosedProjects {
+                            // New Item button
                             Button {
                                 withAnimation {
                                     let item = Item(context: managedObjectContext)
@@ -64,33 +65,35 @@ struct ProjectsView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     if !showClosedProjects {
-                        Button(action: {
+                        // New Project button
+                        Button {
                             withAnimation {
                                 let project = Project(context: managedObjectContext)
                                 project.closed = false
                                 project.creationDate = Date()
                                 dataController.save()
                             }
-                        }, label: {
+                        } label: {
                             Label("Add Project", systemImage: "plus")
-                        })
+                        }
                     }
                 }
                 ToolbarItem(placement: .navigationBarLeading) {
-                    Button {
-                        showingSortOrder.toggle()
+                    Menu {
+                        Button(action: { sortOrder = .optimized}, label: {
+                            Label("Optimized", systemImage: "list.bullet.indent")
+                        })
+                        Button(action: { sortOrder = .creationDate}, label: {
+                            Label("Creation Date", systemImage: "calendar")
+                        })
+                        Button(action: { sortOrder = .title}, label: {
+                            Label("Title", systemImage: "textformat")
+                        })
                     } label: {
                         Label("Sort", systemImage: "arrow.up.arrow.down")
                     }
                 }
             }
-            .actionSheet(isPresented: $showingSortOrder, content: {
-                ActionSheet(title: Text("Sort Items"), message: nil, buttons: [
-                    .default(Text("Optimized"), action: { sortOrder = .optimized }),
-                    .default(Text("Creation Date"), action: { sortOrder = .creationDate }),
-                    .default(Text("Title"), action: { sortOrder = .title })
-                ])
-            })
         }
     }
 }
