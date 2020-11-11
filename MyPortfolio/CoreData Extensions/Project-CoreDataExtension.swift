@@ -29,7 +29,11 @@ extension Project {
     }
     
     var projectItems: [Item] {
-        (items?.allObjects as? [Item] ?? []).sorted { first, second in
+        items?.allObjects as? [Item] ?? []
+    }
+    
+    var projectItemsDefaultSorted: [Item] {
+        projectItems.sorted { first, second in
             if !first.completed {
                 if second.completed {
                     return true
@@ -71,4 +75,15 @@ extension Project {
         return project
     }
     
+    
+    func projectItems(using sortOrder: Item.SortOrder) -> [Item] {
+        switch sortOrder {
+        case .title:
+            return projectItems.sorted(by: \Item.itemTitle)
+        case .creationDate:
+            return projectItems.sorted(by: \Item.itemCreationDate)
+        case .optimized:
+            return projectItemsDefaultSorted
+        }
+    }
 }
