@@ -98,5 +98,30 @@ extension DataController {
         try? moc.save()
         self.objectWillChange.send()
     }
+}
 
+
+extension DataController {
+    func count<T>(for fetchRequest: NSFetchRequest<T>) -> Int {
+        (try? container.viewContext.count(for: fetchRequest)) ?? 0
+    }
+    
+    
+    func hasEarned(award: Award) -> Bool {
+        switch award.criterion {
+        case "items":
+            let request: NSFetchRequest<Item> = NSFetchRequest(entityName: "Item")
+            let awardCount = count(for: request)
+            return awardCount > award.value
+        case "complete":
+            let request: NSFetchRequest<Item> = NSFetchRequest(entityName: "Item")
+            request.predicate = NSPredicate(format: "completed = true")
+            let awardCount = count(for: request)
+            return awardCount > award.value
+
+        default:
+//            fatalError("Unknkown award criterion \(award.criterion)")
+            return false
+        }
+    }
 }
